@@ -1,0 +1,15 @@
+env
+*.pyc
+data/
+lm_cache
+.idea
+results/
+build/
+build/*
+models/*
+wandb/*
+lm_eval.egg-info/*
+lm_eval_poeta_v2.egg-info/*
+Portuguese-Hate-Speech-Dataset/*
+BRoverbs/*
+bigbench_pt/*

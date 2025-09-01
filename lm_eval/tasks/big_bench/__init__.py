@@ -1,0 +1,46 @@
+from .bigbench_tasks import AnalogicalSimilarityTaskGreedy
+from .bigbench_tasks import CodeLineDescriptionTaskGreedy
+from .bigbench_tasks import ContextualParametricKnowledgeConflictsTaskGreedy
+from .bigbench_tasks import DarkHumorDetectionTaskGreedy
+from .bigbench_tasks import EmpiricalJudgmentsTaskGreedy
+from .bigbench_tasks import FormalFallaciesSyllogismsNegationTaskGreedy
+from .bigbench_tasks import GeneralKnowledgeTaskGreedy
+from .bigbench_tasks import MathematicalInductionTaskGreedy
+from .bigbench_tasks import SimpleEthicalQuestionsTaskGreedy
+from .bigbench_tasks import StrategyQATaskGreedy
+from .bigbench_tasks import VitamincFactVerificationTaskGreedy
+from .bigbench_tasks import BroverbsProverbToHistoryTaskGreedy
+from .bigbench_tasks import BroverbsHistoryToProverbTaskGreedy
+from .bigbench_tasks import CausalJudgmentTaskGreedy
+from .bigbench_tasks import CauseAndEffectTwoSentencesTaskGreedy
+from .bigbench_tasks import BbqTaskGreedy
+from .bigbench_tasks import EthicsCommonSenseHardTaskGreedy
+from .bigbench_tasks import InferBRTaskGreedy
+from .bigbench_tasks import ReproTaskGreedy
+from .bigbench_tasks import MinaBRTaskGreedy
+from .bigbench_tasks import MathMCTaskGreedy
+from .bigbench_tasks import GSM8KMCTaskGreedy
+from .bigbench_tasks import SATMathTaskGreedy
+from .bigbench_tasks import SocialIQATaskGreedy
+from .bigbench_tasks import BalancedCopaTaskGreedy
+from .bigbench_tasks import LogiQATaskGreedy
+
+
+# bigbench en
+from .bigbench_tasks import EnglishOriginalAnalogicalSimilarityTaskGreedy
+from .bigbench_tasks import EnglishOriginalCodeLineDescriptionTaskGreedy
+from .bigbench_tasks import EnglishOriginalContextualParametricKnowledgeConflictsTaskGreedy
+from .bigbench_tasks import EnglishOriginalDarkHumorDetectionTaskGreedy
+from .bigbench_tasks import EnglishOriginalEmpiricalJudgmentsTaskGreedy
+from .bigbench_tasks import EnglishOriginalFormalFallaciesSyllogismsNegationTaskGreedy
+from .bigbench_tasks import EnglishOriginalGeneralKnowledgeTaskGreedy
+from .bigbench_tasks import EnglishOriginalMathematicalInductionTaskGreedy
+from .bigbench_tasks import EnglishOriginalSimpleEthicalQuestionsTaskGreedy
+from .bigbench_tasks import EnglishOriginalStrategyQATaskGreedy
+from .bigbench_tasks import EnglishOriginalVitamincFactVerificationTaskGreedy
+from .bigbench_tasks import EnglishOriginalCauseAndEffectTwoSentencesTaskGreedy
+from .bigbench_tasks import EnglishOriginalBbqTaskGreedy
+from .bigbench_tasks import EnglishOriginalSocialIQATaskGreedy
+from .bigbench_tasks import EnglishOriginalCausalJudgmentTaskGreedy
+
+

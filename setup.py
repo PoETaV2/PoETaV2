@@ -1,0 +1,68 @@
+import setuptools
+
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
+setuptools.setup(
+    name="lm_eval_poeta_v2",
+    version="0.2.0",
+    author="Thales Sales Almeida",
+    author_email="t224732@dac.unicamp.br",
+    description="A framework for evaluating models in POETA V2. The framework is a fork of eleutherai/lm-evaluation-harness",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    packages=setuptools.find_packages(),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    python_requires='>=3.9',
+    install_requires=[
+        "black",
+        "datasets",
+        "huggingface-hub<1.0",
+        "click>=7.1",
+        "scikit-learn>=0.24.1",
+        "torch>=1.7",
+        "transformers==4.41.1",
+        "sqlitedict==1.6.0",
+        "pytablewriter==0.58.0",
+        "sacrebleu==1.5.0",
+        "rouge-score==0.0.4",
+        "pycountry==20.7.3",
+        "lm_dataformat==0.0.20",
+        "pytest==6.2.3",
+        "pybind11>2",
+        "tqdm-multiprocess==0.0.11",
+        "zstandard==0.15.2",
+        "jsonlines==2.0.0",
+        "mock==4.0.3",
+        "openai>=1.0.0",
+        "jieba==0.42.1",
+        "nagisa==0.2.7",
+        "bleurt@https://github.com/google-research/bleurt/archive/b610120347ef22b494b6d69b4316e303f5932516.zip#egg=bleurt",
+        "best_download==0.0.9",
+        "accelerate>=0.17.1",
+        "bitsandbytes>=0.37.2",
+        "seqeval>=1.2.2",
+        "pyserini>=0.20.0",
+        "natsort>=8.3.1",
+        "peft==0.2.0",
+        "urllib3<2",
+        "google-generativeai==0.3.2",
+        "maritalk",
+        "google-cloud-storage==2.14.0",
+        "wandb",
+        "langdetect",
+        "immutabledict",
+        "plotly==5.19.0",
+        "kaleido==0.2.1",
+        "openpyxl==3.1.2",
+        "einops==0.8.0",
+        "tiktoken==0.7.0"
+    ],
+    dependency_links=[
+        "https://github.com/google-research/bleurt/archive/b610120347ef22b494b6d69b4316e303f5932516.zip#egg=bleurt",
+    ]
+)

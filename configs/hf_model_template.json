@@ -1,0 +1,14 @@
+{
+    "device": "cuda",
+    "checkpoint_type": "hf",
+    "tokenizer_for_lm_eval": "YOUR/MODEL",
+    "model_for_inference": "YOUR/MODEL",
+    "results_save_dir": "YOUR/RESULTS/PATH",
+    "log_to_wandb": false,
+    "wandb_entity": "YOUR/WANDB/ENTITY",
+    "wandb_project": "YOUR/WANDB/PROJECT",
+    "description_path": "description.json",
+    "conversation_template": null,
+    "dtype": "bf16",
+    "calculate_mc4_loss": false
+}

@@ -1,0 +1,442 @@
+{   
+
+    "prompt_mode": "dynamic-random",
+    "tasks":[
+        {
+            "lm_eval_task": "assin_rte_greedy",
+            "metrics": ["acc", "f1"],
+            "preferred_metric": "f1",
+            "random_score": 50.0,
+            "max_score": 100.0,
+            "translated": false,
+            "num_fewshot": 18,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "assin_sts_greedy",
+            "metrics": ["mse", "pearson"],
+            "preferred_metric": "pearson",
+            "random_score": 0.0,
+            "max_score": 1.0,
+            "translated": false,
+            "num_fewshot": 15,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "bluex_launch_version_",
+            "metrics": ["acc", "2022", "2023", "2021_1", "2021_2", "BK"],
+            "preferred_metric": "acc",
+            "random_score": 0.25,
+            "max_score": 1.0,
+            "translated": false,
+            "num_fewshot": 1
+        },
+        {
+            "lm_eval_task": "enem_greedy",
+            "metrics": ["acc", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2016_2_", "2017"],
+            "preferred_metric": "acc",
+            "random_score": 0.2,
+            "max_score": 1.0,
+            "translated": false,
+            "num_fewshot": 1
+        },
+        {
+            "lm_eval_task": "enem_2022_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.2,
+            "max_score": 1.0,
+            "translated": false,
+            "num_fewshot": 1
+        },
+        {
+            "lm_eval_task": "faquad",
+            "metrics": ["f1", "exact"],
+            "preferred_metric": "f1",
+            "random_score": 0.0,
+            "max_score": 1.0,
+            "translated": false,
+            "num_fewshot": 4
+        },
+        {
+            "lm_eval_task": "tweetsentbr_greedy",
+            "metrics": ["acc", "f1-macro", "f1-weighted"],
+            "preferred_metric": "f1-macro",
+            "random_score": 32.4,
+            "max_score": 100.0,
+            "translated": false,
+            "num_fewshot": 30,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "agnews_pt_greedy",
+            "metrics": ["acc", "f1-macro", "f1-weighted"],
+            "preferred_metric": "acc",
+            "random_score": 25.0,
+            "max_score": 100.0,
+            "translated": true,
+            "num_fewshot": 12,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "boolq_pt_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.5,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 4,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "imdb_pt_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.5,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 2,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "massive_greedy",
+            "metrics": ["acc", "f1-macro", "f1-weighted"],
+            "preferred_metric": "f1-macro",
+            "random_score": 0.5847,
+            "max_score": 100.0,
+            "translated": true,
+            "num_fewshot": 36,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "mkqa_greedy",
+            "metrics": ["best_em", "best_f1", "best_answerable_em", "best_answerable_f1", "best_unanswerable_em", "best_f1_threshold"],
+            "preferred_metric": "best_f1",
+            "random_score": 0.0,
+            "max_score": 100.0,
+            "translated": true,
+            "num_fewshot": 40,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "sst2_pt_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.5,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 34,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "wsc285_pt_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.5,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 18
+        },
+        {
+            "lm_eval_task": "bigbench_pt_analogical_similarity_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.14,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "bigbench_pt_code_line_description_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.25,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        
+        {
+            "lm_eval_task": "bigbench_pt_empirical_judgments_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.33,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "bigbench_pt_formal_fallacies_syllogisms_negation_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.50,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "bigbench_pt_general_knowledge_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.14,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "bigbench_pt_mathematical_induction_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.50,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "bigbench_pt_simple_ethical_questions_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.25,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "bigbench_pt_strategyqa_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.5,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "bigbench_pt_vitaminc_fact_verification_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.33,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "broverbs_history_to_proverb_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.20,
+            "max_score": 1.0,
+            "translated": false,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "broverbs_proverb_to_history_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.20,
+            "max_score": 1.0,
+            "translated": false,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "arc_challenge_greedy_pt",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.25,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "arc_easy_greedy_pt",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.25,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "storycloze_pt_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.50,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "pt_hate_speech_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.50,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "hatebr_binary_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.50,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "poscomp_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.50,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 3,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "bigbench_pt_causal_judgment_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.50,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "bigbench_pt_bbq_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.33,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "bigbench_pt_cause_and_effect_two_sentences_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.50,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        }, 
+        {
+            "lm_eval_task": "ethics_commonsense_test_hard_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.50,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "inferbr_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.33,
+            "max_score": 1.0,
+            "translated": false,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "repro_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.50,
+            "max_score": 1.0,
+            "translated": false,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "mina_br_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.50,
+            "max_score": 1.0,
+            "translated": false,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "math_mc_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.25,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "gsm8k_mc_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.25,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "agieval_sat_math_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.25,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "balanced_copa_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.25,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "logiqa_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.25,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        },
+        {
+            "lm_eval_task": "bigbench_pt_social_iqa_greedy",
+            "metrics": ["acc"],
+            "preferred_metric": "acc",
+            "random_score": 0.25,
+            "max_score": 1.0,
+            "translated": true,
+            "num_fewshot": 5,
+            "limit": 300
+        }
+    ]
+}
