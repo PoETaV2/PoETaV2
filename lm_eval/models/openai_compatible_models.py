@@ -16,10 +16,19 @@ def process_chunk(
     response_format_obj,
     max_gen_toks=None,
     supports_temperature_stop=True,
+    reasoning_effort=None,
 ):
     chunk, until = chunk_until
     chunk_res = []
-    use_completion_tokens = engine in {"o1", "o3", "gpt-5"}
+    usage_acc = {"prompt_tokens": 0, "completion_tokens": 0, "reasoning_tokens": 0, "calls": 0}
+    # reasoning models use max_completion_tokens (not max_tokens) and reject
+    # temperature/stop; trigger it for the known OpenAI reasoning families, for
+    # Maritaca's thinking models, or whenever a reasoning_effort is requested.
+    use_completion_tokens = (
+        engine in {"o1", "o3", "gpt-5"}
+        or "thinking" in engine
+        or bool(reasoning_effort)
+    )
     for context, until_ in chunk:
         is_valid_chat_format = False
         try:
@@ -40,6 +49,10 @@ def process_chunk(
             kwargs["max_completion_tokens"] = max_gen_toks
         else:
             kwargs["max_tokens"] = max_gen_toks
+
+        # enable a fixed reasoning effort (OpenRouter unified field, works across providers)
+        if reasoning_effort:
+            kwargs["extra_body"] = {"reasoning": {"effort": reasoning_effort}}
 
         if is_valid_chat_format:
             if (
@@ -83,12 +96,22 @@ def process_chunk(
             )
             s = response.choices[0].text
 
+        # accumulate token usage (incl. hidden reasoning tokens) for cost tracking
+        u = getattr(response, "usage", None)
+        if u is not None:
+            usage_acc["prompt_tokens"] += getattr(u, "prompt_tokens", 0) or 0
+            usage_acc["completion_tokens"] += getattr(u, "completion_tokens", 0) or 0
+            details = getattr(u, "completion_tokens_details", None)
+            if details is not None:
+                usage_acc["reasoning_tokens"] += getattr(details, "reasoning_tokens", 0) or 0
+            usage_acc["calls"] += 1
+
         if s is None:
             s = ""
             print(f"Model returned empty response for context:\n{context}.\nAssuming answer as empty string.")
 
         chunk_res.append(s)
-    return chunk_res
+    return chunk_res, usage_acc
 
 
 def openai_completion(client, is_chat=False, **kwargs):
@@ -132,7 +155,8 @@ class OpenaiCompatibleModel(BaseLM):
         key_env_var="OPENAI_API_SECRET_KEY",
         batch_size=1,
         response_format_obj=None,
-        supports_temperature_stop=True
+        supports_temperature_stop=True,
+        reasoning_effort=None,
     ):
         """
         Initialize an OpenAI-compatible model.
@@ -159,6 +183,8 @@ class OpenaiCompatibleModel(BaseLM):
         self.supports_temperature_stop = supports_temperature_stop
         self.base_url = base_url
         self.response_format_obj = response_format_obj
+        self.reasoning_effort = reasoning_effort
+        self.usage = {"prompt_tokens": 0, "completion_tokens": 0, "reasoning_tokens": 0, "calls": 0}
         self.client = openai.OpenAI(
             api_key=os.environ.get(key_env_var),
             base_url=base_url,
@@ -175,7 +201,8 @@ class OpenaiCompatibleModel(BaseLM):
 
     @property
     def max_gen_toks(self):
-        return 1000
+        # Maritaca's API caps max_completion_tokens at 12000; keep at/below that ceiling.
+        return 12000
 
     @property
     def batch_size(self):
@@ -227,6 +254,7 @@ class OpenaiCompatibleModel(BaseLM):
             response_format_obj=self.response_format_obj,
             max_gen_toks=self.max_gen_toks,
             supports_temperature_stop=self.supports_temperature_stop,
+            reasoning_effort=self.reasoning_effort,
         )
 
         chunk_results = [None] * len(re_ord.get_reordered())
@@ -238,7 +266,13 @@ class OpenaiCompatibleModel(BaseLM):
             for future in tqdm(as_completed(futures), total=len(futures)):
                 chunk_results[futures.index(future)] = future.result()
 
-        res = [item for sublist in chunk_results for item in sublist]
+        # each chunk result is (texts, usage); split them and accumulate usage
+        texts_per_chunk = []
+        for texts, usage in chunk_results:
+            texts_per_chunk.append(texts)
+            for k in self.usage:
+                self.usage[k] += usage.get(k, 0)
+        res = [item for sublist in texts_per_chunk for item in sublist]
 
         # partial caching
         for i, (context, until) in enumerate(re_ord.get_reordered()):
@@ -262,9 +296,11 @@ class OpenaiAPI(OpenaiCompatibleModel):
         base_url="https://api.openai.com/v1",
         key_env_var="OPENAI_API_SECRET_KEY",
         batch_size=1,
-        response_format_obj=None
+        response_format_obj=None,
+        reasoning_effort=None,
     ):
-        super().__init__(engine, base_url, key_env_var, batch_size, response_format_obj)
+        super().__init__(engine, base_url, key_env_var, batch_size, response_format_obj,
+                         reasoning_effort=reasoning_effort)
 
 
 class MaritalkAPI(OpenaiCompatibleModel):

@@ -34,6 +34,9 @@ def eval_hf_checkpoint_or_api(args, model_config, model_name_or_path=None, check
         if model_config.get("base_url", None):
             model_args += f",base_url={model_config.get('base_url')}"
 
+        if model_config.get("reasoning_effort", None):
+            model_args += f",reasoning_effort={model_config.get('reasoning_effort')}"
+
     tokenizer_for_lm_eval = model_config.get("tokenizer_for_lm_eval", None)
     revision_for_lm_eval = model_config.get("revision_for_lm_eval", None)
     use_adapters = model_config.get("use_adapters", False)

@@ -112,6 +112,11 @@ def simple_evaluate(model, model_args=None, tasks=[],
         "bootstrap_iters": bootstrap_iters,
     }
 
+    # capture token usage if the model tracked it (e.g. API models)
+    usage_obj = getattr(lm, "usage", None) or getattr(getattr(lm, "lm", None), "usage", None)
+    if usage_obj is not None:
+        results["usage"] = usage_obj
+
     return results
 
 

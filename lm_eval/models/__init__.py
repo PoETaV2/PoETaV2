@@ -1,15 +1,10 @@
-from . import azure
 from . import fireworks
 from . import gpt
-from . import gpt2
-from . import gpt3
-from . import dummy
 from . import seq2seq
 from . import google
 from . import openai_compatible_models
 
 MODEL_REGISTRY = {
-    "azure": azure.AZURECHATGPTLM,
     "gpt": gpt.GPTLM,
     "seq2seq": seq2seq.Seq2SeqLM,
     "fireworks": fireworks.FireworksLM,

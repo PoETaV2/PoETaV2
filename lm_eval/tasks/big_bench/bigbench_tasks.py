@@ -185,7 +185,7 @@ class EthicsCommonSenseHardTaskGreedy(BigBenchTaskBaseGreedy):
     # adapted from Ethics dataset
     DATASET_NAME = "ethics_commonsense_test_hard"
     LOCAL_PATH = "bigbench_pt/ethics_commonsense_test_hard/task.json"
-    JSON_URL = "https://https://raw.githubusercontent.com/ZanezZephyrs/temp_big_bench_json_tasks/refs/heads/main/tasks/ethics_commonsense_test_hard/task.json"
+    JSON_URL = "https://raw.githubusercontent.com/ZanezZephyrs/temp_big_bench_json_tasks/refs/heads/main/tasks/ethics_commonsense_test_hard/task.json"
     task_type = "spelled_classification"
 
     possible_classes = ["Sim", "Não"]
