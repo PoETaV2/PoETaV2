@@ -100,14 +100,14 @@ We provide a script to run all poeta v2 tasks. To use it, first, create a config
 
 We provide a template config in `configs/hf_model_template.json`, You can edit it's fields to run any HF compatible model.
 
-Additionaly, we provide model configs for some Maritaca AI models, like `configs/model_sabiazinho3.json`, and OpenAI models, like `configs/model_gpt-4.1-mini.json`.
+Additionaly, we provide model configs for some Maritaca AI models, like `configs/model_sabia-4-thinking.json`, and OpenAI models, like `configs/model_gpt-5.4.json`.
 
 You can run all tasks with the following command. The results will be written in the specified "results_save_dir" in the model config, additionally, if you set "log_to_wandb" to true, the results will be logged to wandb.
 
 
 ```bash
-export MARITALK_API_SECRET_KEY='1234_3498_3498_3498' # necessary if running a Maritaca AI model, like sabia-3.1 or sabiazinho-3
-export OPENAI_API_SECRET_KEY='sk-proj-1234567890' # necessary if running a OpenAI model, like gpt-4.1
+export MARITALK_API_SECRET_KEY='1234_3498_3498_3498' # necessary if running a Maritaca AI model, like sabia-4-thinking or sabiazinho-3
+export OPENAI_API_SECRET_KEY='sk-proj-1234567890' # necessary if running an OpenAI model, like gpt-5.4 (also used as the API key for OpenRouter)
 
 experiment_label="poeta_v2_full_model_X"    
 model_config="configs/hf_model_template.json"

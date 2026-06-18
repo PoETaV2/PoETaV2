@@ -1,0 +1,13 @@
+{
+    "model": "chatgpt",
+    "engine": "openai/gpt-5.4",
+    "base_url": "https://openrouter.ai/api/v1",
+    "results_save_dir": "results/gpt-5.4",
+    "log_to_wandb": false,
+    "wandb_entity": null,
+    "wandb_project": null,
+    "description_path": "description_conversation.json",
+    "conversation_template": "chatgpt",
+    "device": null,
+    "dtype": null
+}

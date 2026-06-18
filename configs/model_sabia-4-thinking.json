@@ -1,0 +1,12 @@
+{
+    "model": "maritalk",
+    "engine": "sabia-4-thinking",
+    "results_save_dir": "results/sabia-4-thinking",
+    "log_to_wandb": false,
+    "wandb_entity": null,
+    "wandb_project": null,
+    "description_path": "description_conversation.json",
+    "conversation_template": "chatgpt",
+    "device": null,
+    "dtype": null
+}
